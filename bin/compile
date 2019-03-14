@@ -6,8 +6,14 @@ BUILDPACK_DIR=`cd $(dirname $0); cd ..; pwd`
 BUILD_DIR=$1
 CACHE_DIR=$2
 VER=1.20
+TIKA_JAR=tika-app-${VER}.jar
 
 cd $CACHE_DIR
-curl -O https://www.apache.org/dyn/closer.cgi/tika/tika-app-${VER}.jar
 
-cp tika-app-${VER}.jar $BUILD_DIR/vendor/jar/tika-app-${VER}.jar
+if [ -e $TIKA_JAR ]; then
+    echo 'Use cached version of tika' >&2
+else
+    curl -O https://www.apache.org/dyn/closer.cgi/tika/${TIKA_JAR}
+fi
+
+cp -v ./tika-app-${VER}.jar $BUILD_DIR/vendor/jar/tika-app-${VER}.jar
