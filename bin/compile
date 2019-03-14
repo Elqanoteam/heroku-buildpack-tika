@@ -16,4 +16,4 @@ else
     curl -O https://www.apache.org/dyn/closer.cgi/tika/${TIKA_JAR}
 fi
 
-cp -v ./tika-app-${VER}.jar $BUILD_DIR/vendor/jar/tika-app-${VER}.jar
+cp -v ./$TIKA_JAR $BUILD_DIR/vendor/jar/$TIKA_JAR
