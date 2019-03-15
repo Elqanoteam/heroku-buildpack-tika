@@ -13,7 +13,7 @@ cd $CACHE_DIR
 if [ -e $TIKA_JAR ]; then
     echo 'Use cached version of tika' >&2
 else
-    curl -O https://www.apache.org/dyn/closer.cgi/tika/${TIKA_JAR}
+    curl -O http://apache.crihan.fr/dist/tika/${TIKA_JAR}
 fi
 
 cp -v ./$TIKA_JAR $BUILD_DIR/vendor/jar/$TIKA_JAR
